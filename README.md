@@ -70,9 +70,14 @@ The code includes three classes namely: Graph, Vertex, and DataStorage.
 
 The Graph class works based on "Adjacency List" approach.
 
-The DataStructure class stores the information of the edges of the graph in a dictionary. The timestamps of the transactions are used as the key. The vertices of each edge create a tuple which is stored in a set under the corespounding dictionary key (i.e. timestamp). Therefore, the set of all the edges for a specific timestamp can be accessed in O(1). In addition, the operations on the set are add(), remove(), and pop() for which the performance is in O(1). 
+The DataStructure class stores the information of the edges of the graph in a dictionary of sets. Here, the timestamps are used as the dictionary keys and edges are stored as tuples of their vertices in their corresponding sets. Therefore, a set of edges for a specific timestamp can be accessed in O(1). In addition, the operations on the set are: add(), remove(), and pop() for which the operation performance is in O(1). 
 
-As the stream of timestamps is provided to the code, new timestamps are placed in a priority queue using the heapq module. Furethermore, any transation that fall out of the T seconds window will be evicated. For these transactions, the timestamp are removed from the priority queue, and the correspunding of data and edges will be removed from the dataStructure and graph respectively.  
+<pre>
+datastorage = {"timestamp0": {("Jamie-Korn", "Jordan-Gruber"), ...},"timestamp1":{....} }
+</pre>
+
+
+The time order of the trasactions is managed using a priority list. The heapq module is used for this porpose. For a new timestamp, the code checks wheather it is in the T seconds window or not. If it falls in the T second window and it is not in the priority list, the new timestamp is added into priority queue. Furthermore, any transaction that falls out of the T seconds window will be evicted. For the avicted transactions, their timestamps are deleted from the priority queue, and the corresponding of data and edges will be removed from the dataStructure and graph respectively.  
 
 
 
