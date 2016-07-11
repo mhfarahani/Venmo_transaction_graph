@@ -79,7 +79,7 @@ datastorage = {"timestamp0": {("Jamie-Korn", "Jordan-Gruber"), ...},"timestamp1"
 </pre>
 
 
-The order of the trasactions is managed using a priority queue based on the 'heapq module'. For a new timestamp, the code checks whether it is on the T seconds window or not. If it falls in the T second window and it is not in the priority queue, the new timestamp is added into queue. Furthermore, any transaction that falls out of the T seconds window will be evicted. For the evicted transactions, their timestamps are deleted from the priority queue, and the corresponding of data and edges will be removed from the dataStructure and graph respectively.  
+The order of the transactions is managed using a priority queue based on the `heapq module`. For a new timestamp, the code checks whether it is on the T seconds window or not. If it falls in the T second window and it is not in the priority queue, the new timestamp is added into the queue. Furthermore, any transaction that falls out of the T seconds window will be evicted. For the evicted transactions, their timestamps are deleted from the priority queue, and the corresponding of data and edges will be removed from the dataStructure and graph respectively.  
 
 
 
