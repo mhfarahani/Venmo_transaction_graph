@@ -17,17 +17,17 @@ The vertices on the graph represent Venmo users and whenever one user pays anoth
 
 This code uses the following python packages:
 
-** 1. sys **
+* 1. sys 
 
-** 2. json **
+* 2. json 
 
-** 3. datetime **
+* 3. datetime 
 
-** 4. time **
+* 4. time 
 
-** 5. heapq **
+* 5. heapq *
 
-** 6. numpy **
+* 6. numpy *
 
 ##Details of implementation
 
