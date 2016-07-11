@@ -269,7 +269,8 @@ def main():
  
      input_path = args[0]
      output_path = args[1] 
-     Read_DataStream(60,input_path,output_path)
+     time_window = 60
+     Read_DataStream(time_window,input_path,output_path)
 
 if __name__ == '__main__':
     main()
