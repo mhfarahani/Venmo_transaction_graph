@@ -15,7 +15,7 @@ This code uses Venmo payments that stream in to build a  graph of users and thei
 
 The vertices on the graph represent Venmo users and whenever one user pays another user, an edge is formed between the two users.
 
-This code uses the following python packages:
+The source code uses the following python packages:
 
 * **sys** 
 
@@ -55,13 +55,7 @@ One example of the data for a single Venmo payment might look like:
 
 The code updates the graph and its associated median degree each time a new payment is processed. The graph only consist of payments with timestamps that are T seconds (defult: 60 seconds) or less from the maximum timestamp that has been processed.
 
-As new payments come in, edges that were formed between users with payments older than T seconds from the maximum timestamp are evicted. For each incoming payment, extract the specified following fields from the JSON response:
-
-	actor
-	target
-	created_time
-	
-The `created_time` field can be used in lieu of a timestamp.
+As new payments come in, edges that were formed between users with payments older than T seconds from the maximum timestamp are evicted. 
 
 
 **Notes:** 
@@ -74,11 +68,11 @@ The `created_time` field can be used in lieu of a timestamp.
 
 The code includes three classes namely: Graph, Vertex, and DataStorage.
 
-The Graph class was implemented based on "Adjacency List" approach where vertices are stored in a dictionary.
+The Graph class works based on "Adjacency List" approach.
 
-The DataStructure class stores the information of the edges of the graph in a dictionary in which the timestamps of the transactions are used as the key. The vertices of edges of the graph for each timestamp are stored in a set data structure under the dictionary keys. Therefore, the set of all the edges of a specific timestamp can be accessed in O(1). Additionally, the operations on the set are add(), remove(), and pop() which are also done in O(1). 
+The DataStructure class stores the information of the edges of the graph in a dictionary. The timestamps of the transactions are used as the key. The vertices of each edge create a tuple which is stored in a set under the corespounding dictionary key (i.e. timestamp). Therefore, the set of all the edges for a specific timestamp can be accessed in O(1). In addition, the operations on the set are add(), remove(), and pop() for which the performance is in O(1). 
 
-As the stream of timestamps is provided to the code, new timestamps are placed in a priority queue using the heapq module. Furethermore, any transation that fall out of the T seconds window will be expired. For these transations, the timestamp are removed from the priority queue, their data will be removed from DataStructure, and their correspounding edges in the graph are removed.  
+As the stream of timestamps is provided to the code, new timestamps are placed in a priority queue using the heapq module. Furethermore, any transation that fall out of the T seconds window will be evicated. For these transactions, the timestamp are removed from the priority queue, and the correspunding of data and edges will be removed from the dataStructure and graph respectively.  
 
 
 
