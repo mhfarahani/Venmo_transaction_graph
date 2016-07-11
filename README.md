@@ -1,7 +1,8 @@
-# Table of Contents
+# Table of Content:
 
-1. [Summary] (README.md#challenge-summary)
+1. [Summary] (README.md# Summary)
 2. [Details of Implementation] (README.md#details-of-implementation)
+3. [Classes and Data Structures] (REASME.md#Classes and Data Structures)
 
 
 For this coding challenge, you will develop tools that could help analyze Venmo’s dataset. Some of the challenges here mimic real world problems.
@@ -64,7 +65,8 @@ As new payments come in, edges that were formed between users with payments olde
 * The transactions that are missing data (e.g. missing an 'actor' field) are ignored by the code and would not affect the graph. 
 
 
-**Classes and Data Structures**
+##Classes and Data Structures 
+[Back to Table of Contents] (README.md#table-of-contents)
 
 The code includes three classes namely: Graph, Vertex, and DataStorage.
 
@@ -77,7 +79,7 @@ datastorage = {"timestamp0": {("Jamie-Korn", "Jordan-Gruber"), ...},"timestamp1"
 </pre>
 
 
-The order of the trasactions is managed using a priority queue based on the heapq module. For a new timestamp, the code checks whether it is on the T seconds window or not. If it falls in the T second window and it is not in the priority queue, the new timestamp is added into queue. Furthermore, any transaction that falls out of the T seconds window will be evicted. For the evicted transactions, their timestamps are deleted from the priority queue, and the corresponding of data and edges will be removed from the dataStructure and graph respectively.  
+The order of the trasactions is managed using a priority queue based on the 'heapq module'. For a new timestamp, the code checks whether it is on the T seconds window or not. If it falls in the T second window and it is not in the priority queue, the new timestamp is added into queue. Furthermore, any transaction that falls out of the T seconds window will be evicted. For the evicted transactions, their timestamps are deleted from the priority queue, and the corresponding of data and edges will be removed from the dataStructure and graph respectively.  
 
 
 
