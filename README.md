@@ -75,7 +75,7 @@ The Graph class works based on "Adjacency List" approach.
 The DataStructure class stores the information of the edges of the graph in a dictionary of sets. Here, the timestamps are used as the dictionary keys and edges are stored as tuples of their vertices in their corresponding sets. Therefore, a set of edges for a specific timestamp can be accessed in O(1). In addition, the operations on the set are: add(), remove(), and pop() for which the operation performance is in O(1). 
 
 <pre>
-datastorage = {"timestamp0": {("Jamie-Korn", "Jordan-Gruber"), ...},"timestamp1":{....} }
+datastorage = {"timestamp0": {("Jamie-Korn", "Jordan-Gruber"), ...},"timestamp1":{...}, ...}
 </pre>
 
 
