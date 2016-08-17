@@ -145,7 +145,7 @@ class DataStorage(object):
         the set of all the payments of the timestamp in O(1).
     '''  
     def __init__(self):
-	self.data = {}
+	self.data = set()
 
     def getKeys(self):
 	return self.data.keys()
